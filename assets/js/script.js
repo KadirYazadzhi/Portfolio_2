@@ -1,16 +1,9 @@
 'use strict';
 
-/**
- * element toggle function
- */
+const elemToggleFunc = function (elem) {
+  elem.classList.toggle("active");
+}
 
-const elemToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
-
-/**
- * header sticky & go to top
- */
 
 const header = document.querySelector("[data-header]");
 const goTopBtn = document.querySelector("[data-go-top]");
@@ -20,7 +13,8 @@ window.addEventListener("scroll", function () {
   if (window.scrollY >= 10) {
     header.classList.add("active");
     goTopBtn.classList.add("active");
-  } else {
+  }
+  else {
     header.classList.remove("active");
     goTopBtn.classList.remove("active");
   }
@@ -29,9 +23,6 @@ window.addEventListener("scroll", function () {
 
 
 
-/**
- * navbar toggle
- */
 
 const navToggleBtn = document.querySelector("[data-nav-toggle-btn]");
 const navbar = document.querySelector("[data-navbar]");
@@ -45,10 +36,6 @@ navToggleBtn.addEventListener("click", function () {
 });
 
 
-
-/**
- * skills toggle
- */
 
 const toggleBtnBox = document.querySelector("[data-toggle-box]");
 const toggleBtns = document.querySelectorAll("[data-toggle-btn]");
@@ -66,9 +53,6 @@ for (let i = 0; i < toggleBtns.length; i++) {
 
 
 
-/**
- * dark & light theme toggle
- */
 
 const themeToggleBtn = document.querySelector("[data-theme-btn]");
 
@@ -81,7 +65,8 @@ themeToggleBtn.addEventListener("click", function () {
     document.body.classList.add("light_theme");
 
     localStorage.setItem("theme", "light_theme");
-  } else {
+  }
+  else {
     document.body.classList.add("dark_theme");
     document.body.classList.remove("light_theme");
 
@@ -90,15 +75,14 @@ themeToggleBtn.addEventListener("click", function () {
 
 });
 
-/**
- * check & apply last time selected theme from localStorage
- */
+
 
 if (localStorage.getItem("theme") === "light_theme") {
   themeToggleBtn.classList.add("active");
   document.body.classList.remove("dark_theme");
   document.body.classList.add("light_theme");
-} else {
+}
+else {
   themeToggleBtn.classList.remove("active");
   document.body.classList.remove("light_theme");
   document.body.classList.add("dark_theme");
